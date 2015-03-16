@@ -3,6 +3,15 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         clean: ['build'],
+        copy: {
+            bootstrap: {
+                expand: true,
+                cwd: 'bower_components/bootstrap/dist/css/',
+                src: ['bootstrap.min.css'],
+                dest: 'build/css/',
+                filter: 'isFile'
+            }
+        },
         concurrent: {
             dev: ['nodemon:app', 'webpack:dev'],
             options: {
@@ -61,8 +70,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-webpack');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // tasks
-    grunt.registerTask('default', ['clean', 'jshint', 'concurrent:dev']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'concurrent:dev']);
 };
 

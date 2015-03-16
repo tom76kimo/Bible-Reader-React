@@ -6,6 +6,7 @@ var About = require('./About.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
 var FluxibleMixin = require('fluxible').Mixin;
+var NavigationBar = require('./NavigationBar.jsx');
 
 var Application = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],
@@ -39,7 +40,7 @@ var Application = React.createClass({
         }
         return (
             <div>
-                <Nav selected={this.state.currentPageName} links={this.state.pages} />
+                <NavigationBar />
                 {output}
             </div>
         );
