@@ -7,8 +7,13 @@ var NavigationBar = React.createClass({
     },
     render: function() {
         return (
-            <nav className="navbar navbar-default">
-            123
+            <nav className="navbar navbar-default navbar-fixed-top">
+                <div className="container">
+                    <a className="navbar-brand">
+                        Bible Reader
+                        <small className="version">2.0</small>
+                    </a>
+                </div>
             </nav>
         );
     }
