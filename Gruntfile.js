@@ -10,6 +10,13 @@ module.exports = function (grunt) {
                 src: ['bootstrap.min.css'],
                 dest: 'build/css/',
                 filter: 'isFile'
+            },
+            style: {
+                expand: true,
+                cwd: 'public/css/',
+                src: ['*.css'],
+                dest: 'build/css/',
+                filter: 'isFile'
             }
         },
         concurrent: {
@@ -73,6 +80,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // tasks
-    grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'concurrent:dev']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'copy:style', 'concurrent:dev']);
 };
 
