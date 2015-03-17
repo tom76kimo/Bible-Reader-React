@@ -12,7 +12,7 @@ var ApplicationStore = createStore({
         this.currentPage = null;
         this.currentRoute = null;
         this.pages = routesConfig;
-        this.pageTitle = '';
+        this.pageTitle = '讀經戰網';
     },
     handleNavigate: function (route) {
         if (this.currentRoute && (this.currentRoute.url === route.url)) {
