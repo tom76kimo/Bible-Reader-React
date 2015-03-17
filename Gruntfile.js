@@ -11,6 +11,13 @@ module.exports = function (grunt) {
                 dest: 'build/css/',
                 filter: 'isFile'
             },
+            bootstrapFont: {
+                expand: true,
+                cwd: 'bower_components/bootstrap/dist/fonts/',
+                src: ['*'],
+                dest: 'build/fonts/',
+                filter: 'isFile'
+            },
             style: {
                 expand: true,
                 cwd: 'public/css/',
@@ -80,6 +87,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // tasks
-    grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'copy:style', 'concurrent:dev']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'copy:bootstrapFont', 'copy:style', 'concurrent:dev']);
 };
 
