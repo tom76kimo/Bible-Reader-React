@@ -8,6 +8,16 @@ var RouterMixin = require('flux-router-component').RouterMixin;
 var FluxibleMixin = require('fluxible').Mixin;
 var NavigationBar = require('./NavigationBar.jsx');
 
+var AppContainer = React.createClass({
+    render: function () {
+        return (
+            <div className="bible-container">
+                {this.props.children}
+            </div>
+        );
+    }
+});
+
 var Application = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],
     statics: {
@@ -41,7 +51,7 @@ var Application = React.createClass({
         return (
             <div>
                 <NavigationBar />
-                {output}
+                <AppContainer>{output}</AppContainer>
             </div>
         );
     },
