@@ -24,6 +24,13 @@ module.exports = function (grunt) {
                 src: ['*.css'],
                 dest: 'build/css/',
                 filter: 'isFile'
+            },
+            images: {
+                expand: true,
+                cwd: 'public/image/',
+                src: ['*.jpg'],
+                dest: 'build/image/',
+                filter: 'isFile'
             }
         },
         concurrent: {
@@ -87,6 +94,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     // tasks
-    grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'copy:bootstrapFont', 'copy:style', 'concurrent:dev']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'copy:bootstrapFont', 'copy:style', 'copy:images', 'concurrent:dev']);
 };
 
