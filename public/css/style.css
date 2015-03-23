@@ -43,6 +43,10 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  -webkit-transition: .5s ease;
+  -moz-transition: .5s ease;
+  -o-transition: .5s ease;
+  transition: .5s ease;
 }
 
 .feature-banner .article-icon {
@@ -56,8 +60,15 @@
   transition: .5s ease;
 }
 
-.feature-banner .article-icon:hover {
-  transform: rotate3d(0, 0, 1, 360deg)
+.feature-banner .article-button:hover {
+  width: 200px;
+  height: 200px;
+}
+
+.feature-banner .article-button:hover .article-icon {
+  transform: rotateY(360deg);
+  left: 43px;
+  top: 49px;
 }
 
 .button-title {
