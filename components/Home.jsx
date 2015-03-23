@@ -25,11 +25,47 @@ var BigImgBanner = React.createClass({
         if (windowWidth > 1024) {
             largeImageBanner = new Image;
             largeImageBanner.onload = function () {
-                console.log('loaded');
                 self.refs.bigBanner.getDOMNode().style.backgroundImage = 'url(' + this.src + ')';
             };
             largeImageBanner.src = '/public/image/bigBanner-large.jpg';
         }
+    }
+});
+
+var ArticleButton = React.createClass({
+    render: function() {
+        return (
+            <div className="article-button">
+                <span className="glyphicon glyphicon-send article-icon"></span>
+            </div>
+        );
+    }
+});
+
+var ButtonTitle = React.createClass({
+    render: function() {
+        return (
+            <div className="button-title">
+                看看大家的收穫文章
+            </div>
+        );
+    }
+});
+
+var FeatureBanner = React.createClass({
+    render: function() {
+        return (
+            <div className="feature-banner">
+                <div>
+                    <div className="col-xs-4">
+                        <ArticleButton />
+                        <ButtonTitle />
+                    </div>
+                    <div className="col-xs-4">123</div>
+                    <div className="col-xs-4">123</div>
+                </div>
+            </div>
+        );
     }
 });
 
@@ -40,7 +76,10 @@ var Home = React.createClass({
     },
     render: function() {
         return (
-            <BigImgBanner />
+            <div>
+                <BigImgBanner />
+                <FeatureBanner />
+            </div>
         );
     }
 });
