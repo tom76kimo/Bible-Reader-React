@@ -35,18 +35,31 @@ var BigImgBanner = React.createClass({
 var ArticleButton = React.createClass({
     render: function() {
         return (
-            <div className="article-button">
+            <div className="feature-button">
                 <span className="glyphicon glyphicon-send article-icon"></span>
             </div>
         );
     }
 });
 
+var RecentUpdatesButton = React.createClass({
+    render: function() {
+        return (
+            <div className="feature-button">
+                <span className="glyphicon glyphicon-list-alt updates-icon"></span>
+            </div>
+        );
+    }
+});
+
 var ButtonTitle = React.createClass({
+    propTypes: {
+        content: React.PropTypes.string
+    },
     render: function() {
         return (
             <div className="button-title">
-                看看大家的收穫文章
+                {this.props.content}
             </div>
         );
     }
@@ -59,10 +72,16 @@ var FeatureBanner = React.createClass({
                 <div>
                     <div className="col-xs-4">
                         <ArticleButton />
+                        <ButtonTitle content="看看大家的收穫文章"/>
+                    </div>
+                    <div className="col-xs-4">
+                        <RecentUpdatesButton />
+                        <ButtonTitle content="紀錄網站開發及更新狀況"/>
+                    </div>
+                    <div className="col-xs-4">
+                        <ArticleButton />
                         <ButtonTitle />
                     </div>
-                    <div className="col-xs-4">123</div>
-                    <div className="col-xs-4">123</div>
                 </div>
             </div>
         );
