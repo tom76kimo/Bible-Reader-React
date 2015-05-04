@@ -34,7 +34,7 @@ module.exports = function (grunt) {
             }
         },
         concurrent: {
-            dev: ['nodemon:app', 'webpack:dev'],
+            dev: ['nodemon:app', 'webpack:dev', 'watch:scripts'],
             options: {
                 logConcurrentOutput: true
             }
@@ -54,6 +54,15 @@ module.exports = function (grunt) {
                 options: {
                     ignore: ['build/**'],
                     ext: 'js,jsx'
+                }
+            }
+        },
+        watch: {
+            scripts: {
+                files: 'public/**/*.css',
+                tasks: ['copy-css'],
+                options: {
+                  spawn: false,
                 }
             }
         },
@@ -92,8 +101,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // tasks
     grunt.registerTask('default', ['clean', 'jshint', 'copy:bootstrap', 'copy:bootstrapFont', 'copy:style', 'copy:images', 'concurrent:dev']);
+    grunt.registerTask('copy-css', ['copy:bootstrap', 'copy:bootstrapFont', 'copy:style', 'copy:images']);
 };
 
